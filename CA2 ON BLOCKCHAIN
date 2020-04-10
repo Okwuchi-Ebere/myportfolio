@@ -1,1 +1,21 @@
-
+rates={'EUR':1.092, 'GBP': 0.87295}
+class Basket:
+    def __init__(self):
+        self.__balance={}
+        
+    def add(self,sym,qty):
+            self.__balance[sym]=self.getTotal(sym)+qty
+            
+    def remove(self,sym,qty):
+        self.__balance[sym]=self.getTotal(sym)-qty
+            
+    def getTotal(self,sym):
+        if sym not in self.__balance:
+            return 0
+        return self.__balance[sym]
+    
+    def value(self):
+        total=0
+        for k,v in self.__balance.items():
+            total+=v*rates[k]
+        return total
