@@ -1,4 +1,7 @@
-rates={'EUR':1.092, 'GBP': 0.87295}
+def getTotal(sym):
+    results=eurrequests.get('https://api.exchangeratesapi.io/latest/rates/%s'%sym)
+    return json.loads(results.content)['rate']['result'][0]['meta']['base']
+    rates={'EUR':1.092, 'GBP': 0.87295}
 class Basket:
     def __init__(self):
         self.__balance={}
