@@ -45,3 +45,10 @@ def sort(vlist):
             output.append(right[counter2])
             counter2+=1
     return output
+
+sort(valuedlist)
+plist2=sort1(plist)
+for item in plist2:
+    print(item.value())
+    plist2.pop().value()
+    plist2
